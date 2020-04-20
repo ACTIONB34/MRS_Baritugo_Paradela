@@ -75,41 +75,29 @@
 
 
 	<!-- Domain search section -->
-<!-- 	<section class="domain-search-section sc-about-page">
+	<section class="domain-search-section sc-about-page">
 		<div class="container">
 			<div class="section-title">
 				<img src="./img/section-title-icon.png" alt="#">
 				<p>The best out there</p>
-				<h2>See our features</h2>
-			</div>
-			<div class="domain-form-warp">
-				<form class="domain-search-form  df-white-bg">
-					<input type="text" placeholder="Enter your website’s name">
-					<button class="site-btn">Search</button>
-				</form>
-				<p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis</p>
+				<h2>Reserve a movie</h2>
 			</div>
 		</div>
-	</section> -->
+	</section>
 	<!-- Domain search section end -->
 
 
 	<!-- About section -->
-	<section class="about-section sc-about-page">
-	<!-- <section class="about-section spad pt-0"> -->
+	<section class="about-section spad pt-0">
 		<div class="container">
-			<div class="row reservation-detail">
-				<div class="col-lg-12">
-<!-- 				<div class="col-lg-6 about-text"> -->
-					<div class="reservation-item">
-					<i class="fa fa-film"></i>
-					</div>
+			<div class="row">
+				<div class="col-lg-4">
+
 					<h3>Movie Reservation</h3>
-
-
 					<form class="contact-form">
 						<div class="row">
-							<div class="col-md-4">
+							
+							<div class="col-md-12">
 								<div class="input-group mb-3">
 								  <select class="custom-select" id="inputGroupSelect01">
 								    <option selected>Choose a movie...</option>
@@ -120,187 +108,53 @@
 								</div>
 							</div>
 
-							<div class="col-md-4">
-								  <label for="example-date-input">Date</label>
-								  <div class="col-10">
-								    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-								  </div>
+
+							<div class="col-md-12">
+							    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
 							</div>
 
-							<div class="col-md-4">
-							  <label for="example-date-input">Cinema Number</label>
+							<div class="col-md-12">
+								<div class="input-group mb-3">
+								  <select class="custom-select" id="inputGroupSelect01">
+								    <option selected>Choose a showing...</option>
+								    <option value="1">10:30 AM</option>
+								    <option value="2">3:00 PM</option>
+								    <option value="3">6:30 PM</option>
+								  </select>
+								</div>
+							</div>
+
+
+							<div class="col-md-12">
+								<div class="input-group mb-3">
 								  <select class="custom-select" id="inputGroupSelect01">
 								    <option selected>Choose a cinema...</option>
-								    <option value="1">1</option>
-								    <option value="2">2</option>
-								    <option value="3">3</option>
-								    <option value="3">4</option>
-							</div>
-
-
-
-							<div class="col-md-4 pricing-plan">
-								<div class="pricing-title">
-									<button class="site-btn">10:30 AM</button>
+								    <option value="1">Cinema 1</option>
+								    <option value="2">Cinema 2</option>
+								    <option value="3">Cinema 3</option>
+								    <option value="4">Cinema 4</option>
+								  </select>
 								</div>
 							</div>
 
-							<div class="col-md-4 pricing-plan">
-
-								<div class="pricing-title">
-									<button class="site-btn">3:00 AM</button>
-								</div>
-							</div>
-
-							<div class="col-md-4 pricing-plan">
-
-								<div class="pricing-title">
-									<button class="site-btn">6:30 PM</button>
-								</div>
-							</div>
-
-
-							<div class="col-md-6">
-								<input type="text" placeholder="Your name">
-							</div>
-							<div class="col-md-6">
-								<input type="text" placeholder="Your e-mail">
-							</div>
 							<div class="col-md-12">
-								<input type="text" placeholder="Subject">
-								<textarea placeholder="Message"></textarea>
-								<button class="site-btn">Select Seats</button>
+								<a class="site-btn" href="./seats.html">Select seats</a>
 							</div>
 						</div>
 					</form>
-
 				</div>
-<!-- 				<div class="col-lg-6">
-					<div class="reservation-item">
-					<i class="fa fa-list"></i>
-					</div>
-					<h3 style="padding-bottom: 65px">Current Reservations</h3>
-		                 <table class="table table-striped table-hover">
-		                    <thead>
-		                       <tr>
-		                          <th>#</th>
-		                          <th>Movie Title</th>
-		                          <th>Cinema Number</th>
-		                          <th>Action</th>
-		                       </tr>
-		                    </thead>
-		                    <tbody>
-		                       <tr>
-		                          <td>1</td>
-		                          <td>Avengers</td>
-		                          <td><a href="https://www.w3schools.com/html/" target="_blank">HTML w3schools</a></td>
-		                          <td><button class="btn btn-primary" onclick="submit()" href="#"><a><span class="fa fa-bookmark"></span> Bookmark</a></button></td>
-		                       </tr>
-		                       <tr>
-		                          <td>2</td>
-		                          <td>Mulan</td>
-		                          <td><a href="https://www.w3schools.com/css/" target="_blank">CSS w3schools</a></td>
-		                          <td><button class="btn btn-primary" onclick="submit()" href="#"><a><span class="fa fa-bookmark"></span> Bookmark</a></button></td>
-		                       </tr>
-		                       <tr>
-		                          <td>3</td>
-		                          <td>Sonic</td>
-		                          <td><a href="https://www.w3schools.com/js/" target="_blank">JavaScript w3schools</a></td>
-		                          <td><button class="btn btn-primary" onclick="submit()" href="#"><a><span class="fa fa-bookmark"></span> Bookmark</a></button></td>
-		                       </tr>
-		                    </tbody>
-		                 </table>
-				</div> -->
+
+
+
+				<div class="col-lg-8">
+					<h3>Current Reservations</h3>
+				</div>
 			</div>
 		</div>
 	</section>
 	<!-- About section end -->
 
 
-	<!-- Milestones section -->
-	<section class="milestones-section set-bg" data-setbg="img/milestones-bg.jpg">
-		<div class="container">
-                <div class="card">
-					<div class="reservation-item">
-					<i class="fa fa-list"></i>
-					</div>
-					<h3 style="padding-bottom: 65px text-color:#FFFF">Current Reservations</h3>
-
-	                 <table class="table table-striped table-hover">
-	                    <thead>
-	                       <tr>
-	                          <th>#</th>
-	                          <th>Movie Title</th>
-	                          <th>Cinema Number</th>
-	                          <th>Action</th>
-	                       </tr>
-	                    </thead>
-	                    <tbody>
-	                       <tr>
-	                          <td>1</td>
-	                          <td>Avengers</td>
-	                          <td>1</td>
-	                          <td><button class="btn btn-primary" onclick="submit()" href="#"><a><span class="fa fa-eye"></span> View</a></button></td>
-	                       </tr>
-	                       <tr>
-	                          <td>2</td>
-	                          <td>Mulan</td>
-	                          <td>1</td>
-	                          <td><button class="btn btn-primary" onclick="submit()" href="#"><a><span class="fa fa-eye"></span> View</a></button></td>
-	                       </tr>
-	                       <tr>
-	                          <td>3</td>
-	                          <td>Sonic</td>
-	                          <td>1</td>
-	                          <td><button class="btn btn-primary" onclick="submit()" href="#"><a><span class="fa fa-eye"></span> View</a></button></td>
-	                       </tr>
-	                    </tbody>
-	                 </table>
-		        </div>
-
-
-
-<!-- 			<div class="row milestones-top-text">
-				<div class="col-lg-8">
-					<p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Vivamus auctor mi eget odio feugiat, quis aliquet velit ornare. Integer egestas sit amet neque sed elementum. </p>
-				</div>
-				<div class="col-lg-4 text-center ">
-					<a href="" class="site-btn mt-4">Read More</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 col-sm-6">
-					<div class="milestone-item text-white">
-						<i class="flaticon-shared-folder"></i>
-						<h2>24k</h2>
-						<p>Clients</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="milestone-item text-white">
-						<i class="flaticon-social-media"></i>
-						<h2>37k</h2>
-						<p>Followers</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="milestone-item text-white">
-						<i class="flaticon-cloud-computing"></i>
-						<h2>8k</h2>
-						<p>Cloud users</p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="milestone-item text-white">
-						<i class="flaticon-customer"></i>
-						<h2>4k</h2>
-						<p>Reviews</p>
-					</div>
-				</div>
-			</div> -->
-		</div>
-	</section>
-	<!-- Milestones section end -->
 
 
 	<!-- Team section -->
