@@ -74,7 +74,23 @@
 	padding-top: 15px;
 }
 
-.details-btn{
-	justify-content: center;
-    width: 220px;
+
+
+/*--------------------
+  Reservation & Seats v.2
+---------------------*/
+.reserve-seats-btn {
+	width: 100%;
+	display: inline-block;
+	border: none;
+	font-size: 14px;
+	font-weight: 400;
+	min-width: 186px;
+	padding: 17px 25px;
+	border-radius: 14px;
+	background: #eb2b63;
+	color: #fff;
+	line-height: 1;
+	cursor: pointer;
+	text-align: center;
 }
