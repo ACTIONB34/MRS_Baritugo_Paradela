@@ -40,3 +40,14 @@
 .reservation-detail h3{
 	text-align: center;
 }
+
+
+/*--------------------
+  Seats v.2
+---------------------*/
+.details-body {
+	background: #eef6f9;
+	text-align: center;
+	padding: 54px 68px 52px;
+	border-radius: 14px;
+}
