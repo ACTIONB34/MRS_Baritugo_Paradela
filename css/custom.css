@@ -47,7 +47,30 @@
 ---------------------*/
 .details-body {
 	background: #eef6f9;
-	text-align: center;
 	padding: 54px 68px 52px;
 	border-radius: 14px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.details-body h3{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.details-body h4{
+	padding-top: 20px;
+}
+
+.details-body h5{
+	padding-top: 15px;
+}
+
+.details-body h4, h5{
+	padding-top: 15px;
+}
+
+.details-btn{
+	justify-content: center;
+    width: 220px;
 }
