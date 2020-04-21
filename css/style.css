@@ -124,8 +124,13 @@ ol {
 }
 
 .spad {
-	padding-top: 105px;
-	padding-bottom: 105px;
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.spadf {
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 
 .text-white h1,
