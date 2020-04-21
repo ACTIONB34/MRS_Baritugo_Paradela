@@ -1760,4 +1760,11 @@ ol {
 	.faq-accordion.accordion-area .panel-link:after {
 		right: 20px;
 	}
+
+	.single-progress-item p {
+		width: 200px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 }

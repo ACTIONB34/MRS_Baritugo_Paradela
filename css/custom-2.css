@@ -24,35 +24,37 @@ ol {
 	min-width: 100px;
 }*/
 
-.image {
-	height: 500px;
+.thumbnail {
+	position: relative;
+}
+
+.thumbnail img {
+	max-height: 530px;
+	width: 100%;
 }
 
 .overlay {
 	position: absolute;
-	bottom: 100%;
+	top: 10%;
+	left: 0;
 	overflow: hidden;
 	width: 100%;
-	height: 0;
 	transition: .2s ease;
 }
 
 .feature-item:hover .overlay {
-	bottom: 0;
 	height: 100%;
 }
 
-.feature-item:hover .image {
+.feature-item:hover img {
 	opacity: 0.2;
 }
 
 .text {
 	white-space: wrap;
 	text-align: left;
-	top: 50px;
 	color: black;
 	font-size: 14px;
 	position: absolute;
 	overflow: hidden;
-	margin-right: 30px;
 }
