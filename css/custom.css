@@ -118,16 +118,29 @@ h6 {
 
 table {
     table-layout:fixed;
-    width:100%;
-    word-break: break-all;
-    overflow:hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .table td{
     padding: .40rem;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
 }
 
  .table th{
     padding: .30rem;
-    width: 20%; 
+  	overflow: hidden;
+  	text-overflow: ellipsis;
  }
+
+.row-ID {
+  width: 5%;
+}
+.row-movie {
+  width: 30%;
+}
+.row-others {
+  width: 15%;
+}
