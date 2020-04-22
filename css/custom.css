@@ -109,6 +109,14 @@ table {
     table-layout:fixed;
     width:100%;
     word-break: break-all;
-    overflow:hidden
+    overflow:hidden;
 }
 
+.table td{
+    padding: .40rem;
+}
+
+ .table th{
+    padding: .30rem;
+    width: 20%; 
+ }
