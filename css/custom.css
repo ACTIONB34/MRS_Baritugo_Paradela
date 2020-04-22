@@ -35,7 +35,18 @@
 
 .reservation-action {
 	color:#eb2b63;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
 }
+
+.reservation-delete {
+	color:#6c757d;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
 
 
 /*--------------------
