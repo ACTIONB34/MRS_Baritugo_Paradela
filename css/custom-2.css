@@ -50,7 +50,7 @@ ol {
 	opacity: 0.2;
 }
 
-.text {
+.caption {
 	white-space: wrap;
 	text-align: left;
 	color: black;
@@ -64,7 +64,7 @@ ol {
 	margin-left: 30px;
 }
 
-.btn {
+.nav-btn {
 	float: right;
 	background: #eb2b63;
 	color: #fff;
