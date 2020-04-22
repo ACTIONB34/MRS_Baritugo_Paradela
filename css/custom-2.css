@@ -58,3 +58,20 @@ ol {
 	position: absolute;
 	overflow: hidden;
 }
+
+.btn-group {
+	float: right;
+	margin-left: 30px;
+}
+
+.btn {
+	float: right;
+	background: #eb2b63;
+	color: #fff;
+	margin-right: 70px;
+	margin-top: 15px;
+	font-size: 14px;
+	padding: 12px 19px;
+	line-height: 1;
+	border-radius: 14px;
+}
