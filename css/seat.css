@@ -36,6 +36,7 @@ label:before {
   border: 1px solid grey;
   position: absolute;
   top: -5px;
+  left:-7px;
   width: 25px;
   height: 25px;
   text-align: center;
