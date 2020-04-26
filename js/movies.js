@@ -65,7 +65,7 @@ var movies = [
 		duration: "1h 55m",
 		date: '2020-04-28',
 		synopsis: "Twelve strangers wake up in a clearing. They don't know where they are -- or how they got there. In the shadow of a dark internet conspiracy theory, ruthless elitists gather at a remote location to hunt humans for sport. But their master plan is about to be derailed when one of the hunted, Crystal, turns the tables on her pursuers."
-		}
+	}
 ];
 
 
@@ -98,7 +98,6 @@ $(document).ready(function(){
 	var fDate = new Date("2020-04-28");
 	var lDate = new Date("2020-05-06");
 	var mDate;
-	var lTest;
 	var i;
 	var j;
     var cinema = "";
@@ -107,7 +106,7 @@ $(document).ready(function(){
 		mDate = new Date(movies[i].date);
         if (movies[i].cinema) {
         	cinema = 'Cinema: ';
-	      for (var j = 0; j < movies[i].cinema.length; j++) {
+	      for (j = 0; j < movies[i].cinema.length; j++) {
 	        cinema += movies[i].cinema[j] + ' ';
 	      }
 	    }
