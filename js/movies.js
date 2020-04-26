@@ -1,9 +1,19 @@
+/* =================================
+------------------------------------
+	MRS Web 
+	Version: 1.0
+ ------------------------------------
+ ====================================*/
+
 //test run
 // window.onload = function() {
 //     alert( "welcome" );
 // };
 
 
+/*------------------
+	Movies
+--------------------*/
 var movies = [
 	{
 		name: "Avengers: Endgame",
@@ -58,6 +68,10 @@ var movies = [
 		}
 ];
 
+
+/*------------------
+	Prices
+--------------------*/
 var prices = [
 	{
 		name: "kids",
@@ -75,8 +89,9 @@ var prices = [
 ];
 
 
-
-//function
+/*------------------
+	Show Movies
+--------------------*/
 $(document).ready(function(){
 	$.each(movies, function(key, value) {
 	var html = "";
@@ -90,9 +105,6 @@ $(document).ready(function(){
 
 	for(i = 0; i < movies.length; i++){
 		mDate = new Date(movies[i].date);
-
-
-        
         if (movies[i].cinema) {
         	cinema = 'Cinema: ';
 	      for (var j = 0; j < movies[i].cinema.length; j++) {
@@ -124,9 +136,7 @@ $(document).ready(function(){
 		}
         cinema = "";
 	}
-
 	$("#movies").html(html);
-
 	});
 });
 
