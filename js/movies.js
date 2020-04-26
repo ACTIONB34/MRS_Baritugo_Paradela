@@ -1,8 +1,7 @@
-window.onload = function() {
- 
-    alert( "welcome" );
- 
-};
+//test run
+// window.onload = function() {
+//     alert( "welcome" );
+// };
 
 
 var movies = [
@@ -68,57 +67,12 @@ var prices = [
 
 
 
-// function listProducts(prods) {
-//   let product_names = [];
-//   for (let i=0; i<prods.length; i+=1) {
-//    product_names.push(prods[i].name);
-//   }
-//   return product_names;
-// }
-// console.log(listProducts(products));
-// function totalValue(prods) {
-//   let inventory_value = 0;
-//   for (let i=0; i<prods.length; i+=1) {
-//     inventory_value += prods[i].inventory * prods[i].unit_price;
-//   }
-//   return inventory_value;
-// }
-// console.log(totalValue(products));
-
-
-
-
-// var x, txt = "";
-
-
-// for (x in movies) {
-// 	test =	"<div class="col-lg-4 col-md-6 feature-item">\n"+
-// 			"<a href="reservation.html">\n"+
-// 			"<div class="thumbnail text-center">\n"+
-//          	"<img src="./img/movies/avengersendgame.jpg" alt="Avengers: Endgame">\n"+
-//             "<div class="overlay">\n"+
-//             "<div class="caption">\n" +
-//             movies[x].name + " " +  movies[x].rating + " " +  movies[x].duration + " " +  movies[x].synopsis +
-//             "</div>\n"+
-//             "</div>\n"+
-//             "</div>\n"+
-// 			"</a>\n" +
-//             "</div>\n";
-
-
-
-// 	txt += movies[x].name + " " +  movies[x].raing + " " +  movies[x].duration + " " +  movies[x].synopsis;
-// };
-
-// document.getElementById("demo").innerHTML = txt;
-
-
-
+//function
 $(document).ready(function(){
 	$.each(movies, function(key, value) {
+	var html = "";
 	for(var i = 0; i < movies.length; i++){
-		  $("#demo").html(
-		    '<div class="col-lg-4 col-md-6 feature-item">' +
+		 html += '<div class="col-lg-4 col-md-6 feature-item">' +
 		    '<a href="reservation.html">' +
 		    '<div class="thumbnail text-center">' +
 		    '<img src="' + movies[i].image + '" alt="' + movies[i].name +'">'+
@@ -130,39 +84,16 @@ $(document).ready(function(){
 		    '<br><br>' +
 		    'Duration: ' + movies[i].duration +
 		    '<br><br>' +
-		    'Synopsis: ' + movies[i].Synopsis +
+		    'Synopsis: ' + movies[i].synopsis +
 		    '</div>' +
 		    '</div>' +
 		    '</div>' +
 		    '</a>' +
-		    '</div>'
-		  );
+		    '</div>';
 		}
+
+	$("#movies").html(html);
 
 	});
 });
 
-
-// var res = {
-//   promo_name: "value",
-//   discount_type: "value",
-//   discount: "value",
-//   products: [{id: 1,name: 'name'},
-//              {id: 2,name: 'name'}]
-// };
-
-// $.each(res, function(key, value) {
-// 	var o =
-//   $("#demo").show();
-//   $("#demo").html(
-//     '<div class="alert alert-success">' +
-//     '<h4>Promotion Details</h4>' +
-//     '<hr>' +
-//     '<p>Promotion: ' + res.promo_name + '</p>' +
-//     '<p>Discount type: ' + res.discount_type + '</p>' +
-//     '<p>Amount: ' + res.discount + '%</p>' +
-//     '<p>Products: ' + (res.products ? res.products.length : 0) + '</p>' +
-//     '</div>'
-//   );
-
-// });
