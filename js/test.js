@@ -1,19 +1,18 @@
-$.each(res, function(key, value) {
-
-  $("#coupon_data").show();
-   var html = '<div class="alert alert-success">' +
-    '<h4>Promotion Details</h4>' +
-    '<hr>' +
-    '<p>Promotion: ' + res.promo_name + '</p>' +
-    '<p>Discount type: ' + res.discount_type + '</p>' +
-    '<p>Amount: ' + res.discount + '%</p>' +
-    '<p>Products: ' + (res.products ? res.products.length : 0) + '</p><p>Details:</p>';
-    
-    if (res.products) {
-      for (var i = 0, {length} = res.products; i < length; i++) {
-        html += '<p><b>Name:</b>' + res.products[i].name + '</p>';
-      }
-    }
-    
-  $("#coupon_details").html(html);
-});
+if(localStorage) {
+  $(document).ready(function() {
+    $(".save").click(function() {
+      // Get input name
+      var lastName = $("#lastName").val();
+      
+      // Store data
+        sessionStorage.setItem("last_name", lastName);
+      alert("Your last name is saved.");
+    });
+    $(".access").click(function() {
+      // Retrieve data
+        alert("Hi, " + localStorage.getItem("first_name") + " " + sessionStorage.getItem("last_name"));
+    });
+  });
+} else {
+    alert("Sorry, your browser do not support local storage.");
+}
