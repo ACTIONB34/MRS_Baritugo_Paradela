@@ -1,6 +1,6 @@
 /* =================================
 ------------------------------------
-	MRS Web 
+	MRS Web Movies 
 	Version: 1.0
  ------------------------------------
  ====================================*/
@@ -16,33 +16,37 @@
 --------------------*/
 var movies = [
 	{
+		id: 1,
 		name: "Avengers: Endgame",
 		image:"./img/movies/avengersendgame.jpg",
 		rating: "8.4/10",
 		duration: "3h 2m",
 		date: '2020-04-28',
-		cinema: ["1","2"],
+		cinema: [1,2],
 		synopsis: "Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe."
 	},
 	{
+		id: 2,
 		name: "Mulan",
 		image:"./img/movies/mulan.jpg",
 		rating: "6.8/10",
 		duration: "2h 5m",
 		date: '2020-04-28',
-		cinema: ["3"],
+		cinema: [3],
 		synopsis: "To save her ailing father from serving in the Imperial Army, a fearless young woman disguises herself as a man to battle northern invaders in China."
 	},
 	{
+		id: 3,
 		name: "Sonic the Hedgehog",
 		image:"./img/movies/sonic.jpg",
 		rating: "6.6/10",
 		duration: "1h 40m",
 		date: '2020-04-28',
-		cinema: ["4"],
+		cinema: [4],
 		synopsis: "The world needed a hero -- it got a hedgehog. Powered with incredible speed, Sonic embraces his new home on Earth -- until he accidentally knocks out the power grid, sparking the attention of uncool evil genius Dr. Robotnik. Now, it's supervillain vs. supersonic in an all-out race across the globe to stop Robotnik from using Sonic's unique power to achieve world domination."
 	},
 	{
+		id: 4,
 		name: "The SpongeBob Movie: Sponge on the Run",
 		image:"./img/movies/spongebob.jpg",
 		rating: "7.9/10",
@@ -51,6 +55,7 @@ var movies = [
 		synopsis: "SpongeBob and Patrick travel to the lost city of Atlantic City to solve the mysterious kidnapping of Gary the snail. They soon prove that there's nothing stronger than the power of friendship as they encounter danger and delight at every turn."
 	},
 	{
+		id: 5,
 		name: "Free Guy",
 		image:"./img/movies/freeguy.jpg",
 		rating: "8.4/10",
@@ -59,6 +64,7 @@ var movies = [
 		synopsis: "A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline."
 	},
 	{
+		id: 6,
 		name: "The Hunt",
 		image:"./img/movies/hunt.jpg",
 		rating: "6.4/10",
@@ -154,9 +160,6 @@ if(localStorage) {
     localStorage.setItem("movies",JSON.stringify(movies));
 
 
-
-
-
 //to be used soon
     // $(".save").click(function() {
     //   // Get input name
@@ -170,6 +173,8 @@ if(localStorage) {
     //   // Retrieve data
     //     alert("Hi, " + localStorage.getItem("first_name") + " " + sessionStorage.getItem("last_name"));
     // });
+
+
   });
 } else {
     alert("Sorry, your browser do not support local storage.");
