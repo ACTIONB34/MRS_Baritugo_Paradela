@@ -10,7 +10,6 @@
 //     alert( "welcome" );
 // };
 
-
 /*------------------
   Movies
 --------------------*/
@@ -83,7 +82,7 @@ var reservations = [
     movieId: 2,
     cinemaId: 3,
     seats:["A1","A2","A3"],
-    date: '2020-04-28',
+    date: "2020-04-28",
     showing: "3:00 PM",
     price: 450   
   },
@@ -92,7 +91,7 @@ var reservations = [
     movieId: 1,
     cinemaId: 2,
     seats:["A1","A2","A3"],
-    date: '2020-04-28',
+    date: "2020-04-28",
     showing: "3:00 PM",
     price: 450
   }
@@ -137,111 +136,97 @@ if movieid & cinemaid & date
 */
 
 
+// if(localStorage) {
+//   $(document).ready(function() {
+//     localStorage.setItem("reservations",JSON.stringify(reservations));
+//     localStorage.setItem("reservedSeats",JSON.stringify(reservedSeats));
+//     //some code here
+
+
+//   });
+// } else {
+//     alert("Sorry, your browser do not support local storage.");
+// }
+
+function addSeats(){
+
+}
+
+function addReservation(){
+  var reservations = {
+    id: ++(reservations.length),
+    movie_id: $("#movie_id").val(),
+    cinema_id: $("cinema_id").val(),
+    seats:["A1","A2","A3"], //to be edited
+    date: $("date").val(),
+    showing: $("showing").val(),
+    price: 450
+  }
+
+  //add seats here
+  
+
+}
+
+function removeReservation(){
+
+}
+
+function removeSeats(){
+
+}
+
+function cost(){
+
+}
+
+
+
 
 
 /*------------------
-  Show Reservation
+  Show Reservations
 --------------------*/
+$(document).ready(function(){
+  var html = "";
+  var fDate = new Date("2020-04-28");
+  var lDate = new Date("2020-05-06");
+  var mDate;
+  var i;
+  var j;
+  var movieName;
+  var movieId;
+  
+  for(i = 0; i < reservations.length; i++){
+    movieId = reservations[i].movieId;
 
-//if(localStorage) {
-  var reservations = [];
-  if(!localStorage.getItem("reservations")){
-  localStorage.setItem("reservations",JSON.stringify(reservations));
+    for(j = 0; j < movies.length; j++){     
+      if(movieId == movies[j].id){
+        console.log(reservations[i].movieId);
+        //console.log(movies[j].id);
+        
+        movieName = movies[j].name;
+        //console.log(movieName);
+      } 
+    }
+
+    mDate = new Date(reservations[i].date);
+    if(mDate <= lDate && mDate >= fDate){
+     html += '<tr>' +
+              '<th scope="row">' + ++(reservations.length) + '</th>' +
+              '<td>' + movieName + '</td>' +
+              '<td>' + reservations[i].date + '</td>' +
+              '<td>' + reservations[i].showing + '</td>' +
+              '<td>' + "Cinema " + reservations[i].cinema_id + '</td>' +
+              '<td>' +
+
+
+
+              '</td>' + 
+              '</tr>';
+
+    }
   
   }
-  $(document).ready(function(){
-
-    //var reservation = [];   
-    var reservations = JSON.parse(localStorage.getItem("reservations"));
-
-    $.each(reservations, function(key, value) {
-    var html = "";
-    var fDate = new Date("2020-04-28");
-    var lDate = new Date("2020-05-06");
-    var mDate;
-    var i;
-    var j;
-    var cinema = "";
-    var movieName = null;
-
-    for(i = 0; i < reservations.length; i++){
-      mDate = new Date(reservations[i].date);
-
-      for(j = 0; j < movies.length; j++){     
-        if(reservations[i].movieId == movies[j].id){  
-          movieName = movies[j].name;
-        } 
-      }
-
-
-      if(mDate <= lDate && mDate >= fDate){
-       html += '<tr><th scope="row">' + reservations[i].id + '</th>'+
-          '<td>' + movieName +'</td>'+
-          '<td>' + reservations[i].date +'</td>'+
-          '<td>' + reservations[i].showing +'</td>'+
-          '<td> Cinema ' + reservations[i].cinemaId +'</td>'+
-          '<td>' +
-          '<a href class="reservation-action" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-eye"></i></a>' +
-          '<a href class="reservation-delete" data-toggle="modal" data-target="#exampleModalLongDel"><i class="fa fa-trash"></i></a>'+
-          '</td>' +
-
-     
-          '</tr>';
-
-      }
-
-    }
-    $("#reservations").html(html);
-    });
-  });
-
-//} else {
-//    alert("Sorry, your browser do not support local storage.");
-//}
-
-
-
-/*------------------
-  Add Reservation
---------------------*/
-$(function(){
-    $.fn.addReservation = function(){ 
-      
-      //will be edited for getting the values
-      var reservation = {
-        id: ++(reservations.length),
-        movieId: $("#movieId").val(),
-        cinemaId: $("cinemaId").val(),
-        seats:["A1","A2","A3"], //to be edited
-        date: $("date").val(),
-        showing: $("showing").val(),
-        price: 450 // to be edited
-      };
-
-      // var reservation = {
-      //   id: ++(reservations.length),
-      //   movieId: 1,
-      //   cinemaId: 2,
-      //   seats:["A1","A2","A3"],
-      //   date: '2020-04-28',
-      //   showing: "3:00 PM",
-      //   price: 450
-      // };
-
-      var reservationsStorage = JSON.parse(localStorage.getItem("reservations"));
-      reservationsStorage.push(reservation);
-      localStorage.setItem("reservations",JSON.stringify(reservationsStorage));
-      location.reload();
-
-      //also add reservedSeats
-
-
-
-
-    }
-
-    $("#add-btn").click(function(){
-        $.fn.addReservation();
-    });
-
+  $("reservations").html(html);
 });
