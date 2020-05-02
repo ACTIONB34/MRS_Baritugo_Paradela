@@ -196,7 +196,7 @@ $(function(){
     $.fn.addReservation = function(){ 
       
       //will be edited for getting the values
-      var reservation = {
+/*      var reservation = {
         id: ++(reservations.length),
         movieId: $("#movieId").val(),
         cinemaId: $("cinemaId").val(),
@@ -204,25 +204,39 @@ $(function(){
         date: $("date").val(),
         showing: $("showing").val(),
         price: 450 // to be edited
-      };
+      };*/
 
-      // var reservation = {
-      //   id: ++(reservations.length),
-      //   movieId: 1,
-      //   cinemaId: 2,
-      //   seats:["A1","A2","A3"],
-      //   date: '2020-04-28',
-      //   showing: "3:00 PM",
-      //   price: 450
-      // };
+      var reservation = {
+        id: ++(reservations.length),
+        movieId: 1,
+        cinemaId: 2,
+        seats:["A1","A2","A3"],
+        date: '2020-04-28',
+        showing: "3:00 PM",
+        price: 450
+      };
 
       var reservationsStorage = JSON.parse(localStorage.getItem("reservations"));
       reservationsStorage.push(reservation);
       localStorage.setItem("reservations",JSON.stringify(reservationsStorage));
-      location.reload();
+      //location.reload();
 
+      
       //also add reservedSeats
 
+      var success = '<div class="col-lg-12">' +
+                    '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+                    '<h4 class="alert-heading">Successfully Reserved!</h4>' +
+                    '<hr>' +
+                    '<p class="mb-0">Yay! Thank you for reserving at MovieRocket!</p>' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                    '<span aria-hidden="true">&times;</span>' +
+                    '</button>' +
+                    '</div>' +
+                    '</div>';
+
+      $('#exampleModalLong').modal('toggle');
+      $("#success").html(success);
     }
 
     $("#add-btn").click(function(){
