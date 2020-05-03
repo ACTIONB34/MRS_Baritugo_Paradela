@@ -23,6 +23,7 @@ var movies = [
     duration: "3h 2m",
     date: '2020-04-28',
     cinema: [1,2],
+      timeslot: "8:00PM",
     synopsis: "Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe."
   },
   {
@@ -33,6 +34,7 @@ var movies = [
     duration: "2h 5m",
     date: '2020-04-28',
     cinema: [3],
+      timeslot: "8:00PM",
     synopsis: "To save her ailing father from serving in the Imperial Army, a fearless young woman disguises herself as a man to battle northern invaders in China."
   },
   {
@@ -43,6 +45,7 @@ var movies = [
     duration: "1h 40m",
     date: '2020-04-28',
     cinema: [4],
+      timeslot: "8:00PM",
     synopsis: "The world needed a hero -- it got a hedgehog. Powered with incredible speed, Sonic embraces his new home on Earth -- until he accidentally knocks out the power grid, sparking the attention of uncool evil genius Dr. Robotnik. Now, it's supervillain vs. supersonic in an all-out race across the globe to stop Robotnik from using Sonic's unique power to achieve world domination."
   },
   {
@@ -51,7 +54,9 @@ var movies = [
     image:"./img/movies/spongebob.jpg",
     rating: "7.9/10",
     duration: "1h 46m",
-    date: '2020-04-28',
+    date: '2020-05-04',
+    cinema: [1,2],
+      timeslot: "8:00PM",
     synopsis: "SpongeBob and Patrick travel to the lost city of Atlantic City to solve the mysterious kidnapping of Gary the snail. They soon prove that there's nothing stronger than the power of friendship as they encounter danger and delight at every turn."
   },
   {
@@ -60,7 +65,9 @@ var movies = [
     image:"./img/movies/freeguy.jpg",
     rating: "8.4/10",
     duration: "1h 50m",
-    date: '2020-04-28',
+    date: '2020-05-04',
+    cinema: [3],
+      timeslot: "8:00PM",
     synopsis: "A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline."
   },
   {
@@ -69,7 +76,9 @@ var movies = [
     image:"./img/movies/hunt.jpg",
     rating: "6.4/10",
     duration: "1h 55m",
-    date: '2020-04-28',
+    date: '2020-05-04',
+    cinema: [4],
+      timeslot: "8:00PM",
     synopsis: "Twelve strangers wake up in a clearing. They don't know where they are -- or how they got there. In the shadow of a dark internet conspiracy theory, ruthless elitists gather at a remote location to hunt humans for sport. But their master plan is about to be derailed when one of the hunted, Crystal, turns the tables on her pursuers."
   }
 ];
@@ -350,7 +359,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
  $('.seatclick').click(function(e){
-     e.preventDefault();
+      e.preventDefault();
       var selectedSeat = "./img/selectedseat2.png";
       var seat = "./img/seat.png";
       var curr = $("#bg").attr('src');

@@ -23,6 +23,7 @@ var movies = [
 		duration: "3h 2m",
 		date: '2020-04-28',
 		cinema: [1,2],
+    	timeslot: "8:00PM",
 		synopsis: "Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe."
 	},
 	{
@@ -33,6 +34,7 @@ var movies = [
 		duration: "2h 5m",
 		date: '2020-04-28',
 		cinema: [3],
+    	timeslot: "8:00PM",
 		synopsis: "To save her ailing father from serving in the Imperial Army, a fearless young woman disguises herself as a man to battle northern invaders in China."
 	},
 	{
@@ -43,6 +45,7 @@ var movies = [
 		duration: "1h 40m",
 		date: '2020-04-28',
 		cinema: [4],
+    	timeslot: "8:00PM",
 		synopsis: "The world needed a hero -- it got a hedgehog. Powered with incredible speed, Sonic embraces his new home on Earth -- until he accidentally knocks out the power grid, sparking the attention of uncool evil genius Dr. Robotnik. Now, it's supervillain vs. supersonic in an all-out race across the globe to stop Robotnik from using Sonic's unique power to achieve world domination."
 	},
 	{
@@ -53,6 +56,7 @@ var movies = [
 		duration: "1h 46m",
 		date: '2020-05-04',
 		cinema: [1,2],
+    	timeslot: "8:00PM",
 		synopsis: "SpongeBob and Patrick travel to the lost city of Atlantic City to solve the mysterious kidnapping of Gary the snail. They soon prove that there's nothing stronger than the power of friendship as they encounter danger and delight at every turn."
 	},
 	{
@@ -63,6 +67,7 @@ var movies = [
 		duration: "1h 50m",
 		date: '2020-05-04',
 		cinema: [3],
+    	timeslot: "6:00PM",
 		synopsis: "A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline."
 	},
 	{
@@ -73,6 +78,7 @@ var movies = [
 		duration: "1h 55m",
 		date: '2020-05-04',
 		cinema: [4],
+    	timeslot: "8:00PM",
 		synopsis: "Twelve strangers wake up in a clearing. They don't know where they are -- or how they got there. In the shadow of a dark internet conspiracy theory, ruthless elitists gather at a remote location to hunt humans for sport. But their master plan is about to be derailed when one of the hunted, Crystal, turns the tables on her pursuers."
 	}
 ];
@@ -207,19 +213,21 @@ if(localStorage) {
 
 
 /*------------------
-	Reservation Dropdown
+	Reservation Movielist Dropdown
 --------------------*/
-var movieslist = JSON.parse(localStorage.getItem("movies"));
 
 $(document).ready(function(){
+
+	var movieslist = JSON.parse(localStorage.getItem("movies"));
+	
 	$.each(movieslist, function(key, value) {
-	var html = '<option selected>Choose a movie...</option>';
+	var html = '<option selected value="1">Choose a movie...</option>';
 	var fDate = new Date("2020-04-28");
 	var lDate = new Date("2020-05-06");
 	var mDate;
 	var i;
 	var j;
-    var cinema = "";
+	var movieSelectId = null;
 
 	for(i = 0; i < movies.length; i++){
 		mDate = new Date(movies[i].date);
@@ -231,4 +239,50 @@ $(document).ready(function(){
 	}
 	$("#movieSelect").html(html);
 	});
+
+
+
+/*	movieSelectId = $("#movieSelect").val();
+	
+	var html = '<option selected>Choose a showing...</option>';
+	html += '<option value="' + movieslist[movieSelectId].timeslot + '">' +
+		    movieslist[movieSelectId].timeslot + 
+		    '</option>';
+	$("#showingSelect").html(html);*/
+
+
 });
+
+
+/*------------------
+	Reservation Showing, Cinema Dropdown
+--------------------*/
+
+$(document).ready(function(){
+	$("#movieSelect").change(function() {
+		var movieslist = JSON.parse(localStorage.getItem("movies"));
+		var movieSelectId = $("#movieSelect").val();
+		movieSelectId -= 1;
+		var i;
+	    
+	    var htmlShowing = '<option selected>Choose a showing...</option>';
+		htmlShowing += '<option value="' + movieslist[movieSelectId].timeslot + '">' +
+		    movieslist[movieSelectId].timeslot + 
+		    '</option>';
+
+	    var htmlCinema = '<option selected>Choose a cinema...</option>';
+
+
+		for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
+			htmlCinema += '<option value="' + movieslist[movieSelectId].cinema[i] + '"> Cinema ' +
+		    movieslist[movieSelectId].cinema[i] + 
+		    '</option>';
+		}
+
+
+		$("#showingSelect").html(htmlShowing);
+		$("#cinemaSelect").html(htmlCinema);
+	  });
+	
+});
+
