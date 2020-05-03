@@ -115,7 +115,35 @@ var seats = ["A1","A2","A3","A4","A5","A6","A7","A8"];
 /*------------------
 	Show Movies
 --------------------*/
+if(localStorage) {
+  $(document).ready(function() {
+    localStorage.setItem("movies",JSON.stringify(movies));
+
+//to be used soon
+    // $(".save").click(function() {
+    //   // Get input name
+    //   var lastName = $("#lastName").val();
+      
+    //   // Store data
+    //     sessionStorage.setItem("last_name", lastName);
+    //   alert("Your last name is saved.");
+    // });
+    // $(".access").click(function() {
+    //   // Retrieve data
+    //     alert("Hi, " + localStorage.getItem("first_name") + " " + sessionStorage.getItem("last_name"));
+    // });
+
+
+  });
+} else {
+    alert("Sorry, your browser do not support local storage.");
+}
+
+
 $(document).ready(function(){
+
+  	var movies = JSON.parse(localStorage.getItem("movies"));
+
 	$.each(movies, function(key, value) {
 	var html = "";
 	var fDate = new Date("2020-04-28");
@@ -164,30 +192,7 @@ $(document).ready(function(){
 
 
 
-if(localStorage) {
-  $(document).ready(function() {
-    localStorage.setItem("movies",JSON.stringify(movies));
 
-
-//to be used soon
-    // $(".save").click(function() {
-    //   // Get input name
-    //   var lastName = $("#lastName").val();
-      
-    //   // Store data
-    //     sessionStorage.setItem("last_name", lastName);
-    //   alert("Your last name is saved.");
-    // });
-    // $(".access").click(function() {
-    //   // Retrieve data
-    //     alert("Hi, " + localStorage.getItem("first_name") + " " + sessionStorage.getItem("last_name"));
-    // });
-
-
-  });
-} else {
-    alert("Sorry, your browser do not support local storage.");
-}
 
 
 
