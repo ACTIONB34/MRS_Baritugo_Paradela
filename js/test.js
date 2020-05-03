@@ -314,7 +314,7 @@ $(document).ready(function(){
       seats += '<tr> + <th scope="row">' + text[i] + '</th>';
       for(j = 0; j < 8; j++){
         seats += '<td>' +
-                 '<input type="checkbox" id="myCheckbox' + text[i] + (j+1) + '"/>' +
+                 '<input type="checkbox" id="myCheckbox' + text[i] + (j+1) + '" value="' + text[i] + (j+1) +'"/>' +
                  '<label for="myCheckbox' + text[i] + (j+1) + '" class="seatclick">' + 
                  '<img src="./img/seat.png" id="Checkbox' + text[i] + (j+1) + '"/></label>' +
                  '</td>';

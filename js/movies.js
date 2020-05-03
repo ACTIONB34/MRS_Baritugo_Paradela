@@ -51,7 +51,8 @@ var movies = [
 		image:"./img/movies/spongebob.jpg",
 		rating: "7.9/10",
 		duration: "1h 46m",
-		date: '2020-04-28',
+		date: '2020-05-04',
+		cinema: [1,2],
 		synopsis: "SpongeBob and Patrick travel to the lost city of Atlantic City to solve the mysterious kidnapping of Gary the snail. They soon prove that there's nothing stronger than the power of friendship as they encounter danger and delight at every turn."
 	},
 	{
@@ -60,7 +61,8 @@ var movies = [
 		image:"./img/movies/freeguy.jpg",
 		rating: "8.4/10",
 		duration: "1h 50m",
-		date: '2020-04-28',
+		date: '2020-05-04',
+		cinema: [3],
 		synopsis: "A bank teller called Guy realizes he is a background character in an open world video game called Free City that will soon go offline."
 	},
 	{
@@ -69,7 +71,8 @@ var movies = [
 		image:"./img/movies/hunt.jpg",
 		rating: "6.4/10",
 		duration: "1h 55m",
-		date: '2020-04-28',
+		date: '2020-05-04',
+		cinema: [4],
 		synopsis: "Twelve strangers wake up in a clearing. They don't know where they are -- or how they got there. In the shadow of a dark internet conspiracy theory, ruthless elitists gather at a remote location to hunt humans for sport. But their master plan is about to be derailed when one of the hunted, Crystal, turns the tables on her pursuers."
 	}
 ];
@@ -201,3 +204,31 @@ if(localStorage) {
 //     alert("false");
 //     return false;
 // }
+
+
+/*------------------
+	Reservation Dropdown
+--------------------*/
+var movieslist = JSON.parse(localStorage.getItem("movies"));
+
+$(document).ready(function(){
+	$.each(movieslist, function(key, value) {
+	var html = '<option selected>Choose a movie...</option>';
+	var fDate = new Date("2020-04-28");
+	var lDate = new Date("2020-05-06");
+	var mDate;
+	var i;
+	var j;
+    var cinema = "";
+
+	for(i = 0; i < movies.length; i++){
+		mDate = new Date(movies[i].date);
+		if(mDate <= lDate && mDate >= fDate){
+		 html += '<option value="' + movieslist[i].id + '">' +
+		    movieslist[i].name + 
+		    '</option>';
+		}
+	}
+	$("#movieSelect").html(html);
+	});
+});
