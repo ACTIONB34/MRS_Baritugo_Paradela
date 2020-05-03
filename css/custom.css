@@ -117,7 +117,7 @@ h6 {
 
 
 table {
-    table-layout:fixed;
+  table-layout:fixed;
   width: 100%;
   white-space: nowrap;
 }
@@ -131,7 +131,7 @@ table {
 
  .table th{
     padding: .30rem;
-  	overflow: hidden;
+  	
   	text-overflow: ellipsis;
  }
 

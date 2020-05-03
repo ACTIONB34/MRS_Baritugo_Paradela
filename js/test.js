@@ -192,7 +192,7 @@ var reservedSeats = [
 /*------------------
   Add Reservation
 --------------------*/
-$(function(){
+$(document).ready(function(){
     $.fn.addReservation = function(){ 
       
       //will be edited for getting the values
@@ -297,4 +297,72 @@ $(document).ready(function(){
   $("#movieCinemaShowing").html(movieCinemaShowing);
   $("#movieSeats").html(movieSeats);
   $("#movieCost").html(movieCost);
+});
+
+
+
+/*------------------
+  Seats
+--------------------*/
+$(document).ready(function(){
+    var seats = " ";
+    var i;
+    var j;
+    var text = ["A","B","C","D","E","F","G","H"];
+
+    for(i = 0; i < text.length; i++){
+      seats += '<tr> + <th scope="row">' + text[i] + '</th>';
+      for(j = 0; j < 8; j++){
+        seats += '<td>' +
+                 '<input type="checkbox" id="myCheckbox' + text[i] + (j+1) + '"/>' +
+                 '<label for="myCheckbox' + text[i] + (j+1) + '" class="seatclick">' + 
+                 '<img src="./img/seat.png" id="Checkbox' + text[i] + (j+1) + '"/></label>' +
+                 '</td>';
+      }
+      seats +="</tr>";
+    }
+
+    $("#test").html(seats);
+
+
+
+    //reserved seats Test 
+
+    var reserved = ["A5","A6","A7"];
+    var seat;
+
+
+    for(i = 0; i < reserved.length; i++){
+      seat = '#Checkbox' + reserved[i] +'';
+      $(seat).attr('src',"./img/reservedseat.png");
+      //prevent click
+      $(seat).click(function(event) {
+        event.preventDefault();
+      });
+     }
+
+
+});
+
+
+
+
+
+$(document).ready(function(){
+ $('.seatclick').click(function(e){
+     e.preventDefault();
+      var selectedSeat = "./img/selectedseat2.png";
+      var seat = "./img/seat.png";
+      var curr = $("#bg").attr('src');
+
+      if(curr == selectedSeat){
+        $("#bg").attr('src',"./img/seat.png");
+        return false;
+      }
+      else {
+        $("#bg").attr('src',"./img/selectedseat2.png");
+        return false;
+      }
+ });
+
 });
