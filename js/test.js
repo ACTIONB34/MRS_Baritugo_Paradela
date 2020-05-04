@@ -314,6 +314,8 @@ $(document).ready(function(){
   Seats
 --------------------*/
 $(document).ready(function(){
+
+    var movies = JSON.parse(localStorage.getItem("movies"));
     var seats = " ";
     var i;
     var j;
@@ -340,7 +342,6 @@ $(document).ready(function(){
     var reserved = ["A5","A6","A7"];
     var seat;
 
-
     for(i = 0; i < reserved.length; i++){
       seat = '#Checkbox' + reserved[i] +'';
       $(seat).attr('src',"./img/reservedseat.png");
@@ -350,7 +351,27 @@ $(document).ready(function(){
       });
      }
 
+     var currentReservation = "";
 
+
+     var movieId = sessionStorage.getItem("movieId");
+     var selectedDate = sessionStorage.getItem("date");
+     var selectedShowing = sessionStorage.getItem("showing");
+     var selectedCinema = sessionStorage.getItem("cinemaId");
+
+     currentReservation += '<div class=" details-body highlight">' +
+          '<h3>Reservation Details</h3>' +
+          '<h4>' + movies[movieId-1].name + '</h4>' +
+          '<h5>' + selectedDate + '</h5>' +
+          '<h5>Cinema ' + selectedCinema + ' - ' + selectedShowing + '</h5>' +
+          '<h5>Seats:</h5>' +
+          '<h5>A1  A2  A3 </h5>' +
+          '<h5>Total Cost: ₱450</h5>'+
+          '<br><br>'+
+          '<a href="#" class="reserve-seats-btn" data-toggle="modal" data-target="#exampleModalLong">Proceed to Checkout</a>';
+
+
+    $("#currentReservation").html(currentReservation);
 });
 
 
