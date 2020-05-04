@@ -327,7 +327,7 @@ $(document).ready(function(){
         seats += '<td>' +
                  '<input type="checkbox" id="myCheckbox' + text[i] + (j+1) + '" value="' + text[i] + (j+1) +'"/>' +
                  '<label for="myCheckbox' + text[i] + (j+1) + '" class="seatclick">' + 
-                 '<img src="./img/seat.png" id="Checkbox' + text[i] + (j+1) + '"/></label>' +
+                 '<img src="./img/seat.png" id="Checkbox' + text[i] + (j+1) + '" value="' + text[i] + (j+1) +'"/></label>' +
                  '</td>';
       }
       seats +="</tr>";
@@ -359,6 +359,8 @@ $(document).ready(function(){
      var selectedShowing = sessionStorage.getItem("showing");
      var selectedCinema = sessionStorage.getItem("cinemaId");
 
+     var selectedSeats = [];
+
      currentReservation += '<div class=" details-body highlight">' +
           '<h3>Reservation Details</h3>' +
           '<h4>' + movies[movieId-1].name + '</h4>' +
@@ -369,22 +371,33 @@ $(document).ready(function(){
           '<h5>Total Cost: ₱450</h5>'+
           '<br><br>'+
           '<a href="#" class="reserve-seats-btn" data-toggle="modal" data-target="#exampleModalLong">Proceed to Checkout</a>';
-
-
     $("#currentReservation").html(currentReservation);
 });
 
 
 
-
-
+   
 $(document).ready(function(){
+
+         var selectedSeats = [];
+if(!sessionStorage.getItem("selectedSeats")){
+        sessionStorage.setItem("selectedSeats",JSON.stringify(selectedSeats));
+      }
+
  $('td img').click(function(e){
       e.preventDefault();
       var selectedSeat = "./img/selectedseat2.png";
       var reservedSeat = "./img/reservedseat.png";
       var seat = "./img/seat.png";
       var curr = $(this).attr('src');
+      var selected = "";
+      var exist = false;
+      var i;
+      var j;
+
+      var selectedSeatsStorage = JSON.parse(sessionStorage.getItem("selectedSeats"));
+      var selectedSeatsFor = JSON.parse(sessionStorage.getItem("selectedSeats"));
+
 
       if(curr == reservedSeat){
         $(this).click(function(event) {
@@ -394,11 +407,42 @@ $(document).ready(function(){
       }
       else if(curr == selectedSeat){
         $(this).attr('src',"./img/seat.png");
+
+        selected = $(this).attr('value');
+        tmp = JSON.parse(sessionStorage.getItem("selectedSeats"));
+        
+        //remove
+        for(i = 0; i < selectedSeatsFor.length; i++){
+            if(selected == selectedSeatsFor[i]){
+              j = i;
+              break;
+            }
+        }
+        delete tmp[j];
+        sessionStorage.setItem("selectedSeats", JSON.stringify(tmp));
         return false;
       }
       else {
         $(this).attr('src',"./img/selectedseat2.png");
-        return false;
+        selected = $(this).attr('value');
+        selectedSeatsStorage.push(selected);
+
+        //no duplicate
+        for(i = 0; i < selectedSeatsFor.length; i++){
+            if(selected == selectedSeatsFor[i]){
+              exist = true;
+              //console.log(selected);
+              //console.log(selectedSeatsFor[i]);
+              //console.log(exist);
+            }
+        }
+
+        //add to session
+        if(exist == false){
+          sessionStorage.setItem("selectedSeats",JSON.stringify(selectedSeatsStorage));
+          console.log(selected);
+          return false;
+        }
       }
  });
 
