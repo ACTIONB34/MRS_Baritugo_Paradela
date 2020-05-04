@@ -218,7 +218,9 @@ $(document).ready(function(){
 	var movieslist = JSON.parse(localStorage.getItem("movies"));
 	
 	$.each(movieslist, function(key, value) {
-	var html = '<option selected value="1">Choose a movie...</option>';
+
+
+	var html = '<option value="1">Choose a movie...</option>';
 	var fDate = new Date("2020-04-28");
 	var lDate = new Date("2020-05-06");
 	var mDate;
@@ -235,6 +237,44 @@ $(document).ready(function(){
 		}
 	}
 	$("#movieSelect").html(html);
+
+    	var movieId = sessionStorage.getItem("movieId");
+		var test = '#movieSelect ';
+		var test2 = 'option[value='+movieId+']';
+		var test3 = test + test2;
+
+		if(movieId){
+			$(test3).attr('selected', 'selected');
+			var movieSelectId = movieId;
+			movieSelectId -= 1;
+			var i;
+
+		    var htmlDate = '<option selected>Choose a date...</option>';
+
+			//for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
+				htmlDate += '<option value="' + movieslist[movieSelectId].date + '">' +
+			   					movieslist[movieSelectId].date + 
+			    				'</option>';
+			//}
+		    
+		    var htmlShowing = '<option selected>Choose a showing...</option>';
+			htmlShowing += '<option value="' + movieslist[movieSelectId].timeslot + '">' +
+						    movieslist[movieSelectId].timeslot + 
+						    '</option>';
+
+		    var htmlCinema = '<option selected>Choose a cinema...</option>';
+
+			for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
+				htmlCinema += '<option value="' + movieslist[movieSelectId].cinema[i] + '"> Cinema ' +
+			   					movieslist[movieSelectId].cinema[i] + 
+			    				'</option>';
+			}
+			
+			$("#dateSelect").html(htmlDate);
+			$("#showingSelect").html(htmlShowing);
+			$("#cinemaSelect").html(htmlCinema);
+		}
+
 	});
 
 });
