@@ -19,7 +19,6 @@ input[type="checkbox"][id^="myCheckbox"] {
 }
 
 label {
-
   padding: 1px;
   display: block;
   position: relative;
@@ -40,7 +39,7 @@ label:before {
   width: 25px;
   height: 25px;
   text-align: center;
-  line-height: 28px;
+  line-height: 28px;  
   transition-duration: 0.4s;
   transform: scale(0);
 }
@@ -56,14 +55,16 @@ label img {
   border-color: #ddd;
 }
 
-:checked + label:before {
-  content: "✓";
+/*:checked + label:before {
   background-color: #28a745;
   transform: scale(.7);
+}*/
+label:checked {
+  /* box-shadow: 0 0 5px #333; */
+  
 }
 
 :checked + label img {
-  transform: scale(0.9);
   /* box-shadow: 0 0 5px #333; */
   z-index: -1;
 }

@@ -358,20 +358,27 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
- $('.seatclick').click(function(e){
+ $('td img').click(function(e){
       e.preventDefault();
       var selectedSeat = "./img/selectedseat2.png";
+      var reservedSeat = "./img/reservedseat.png";
       var seat = "./img/seat.png";
-      var curr = $("#bg").attr('src');
+      var curr = $(this).attr('src');
 
-      if(curr == selectedSeat){
-        $("#bg").attr('src',"./img/seat.png");
+      if(curr == reservedSeat){
+        $(this).click(function(event) {
+          event.preventDefault();
+        });
+
+      }
+      else if(curr == selectedSeat){
+        $(this).attr('src',"./img/seat.png");
         return false;
       }
       else {
-        $("#bg").attr('src',"./img/selectedseat2.png");
+        $(this).attr('src',"./img/selectedseat2.png");
         return false;
       }
  });
 
-});
+});  
