@@ -367,8 +367,8 @@ $(document).ready(function(){
           '<h5>' + selectedDate + '</h5>' +
           '<h5>Cinema ' + selectedCinema + ' - ' + selectedShowing + '</h5>' +
           '<h5>Seats:</h5>' +
-          '<h5>A1  A2  A3 </h5>' +
-          '<h5>Total Cost: ₱450</h5>'+
+          '<h5 id = "movieSeats"></h5>' +
+          '<h5 id = "seatsCost">Total Cost:</h5>'+
           '<br><br>'+
           '<a href="#" class="reserve-seats-btn" data-toggle="modal" data-target="#exampleModalLong">Proceed to Checkout</a>';
     $("#currentReservation").html(currentReservation);
@@ -376,13 +376,15 @@ $(document).ready(function(){
 
 
 
-   
+/*------------------
+  Seats Selection
+--------------------*/   
 $(document).ready(function(){
 
-         var selectedSeats = [];
-if(!sessionStorage.getItem("selectedSeats")){
-        sessionStorage.setItem("selectedSeats",JSON.stringify(selectedSeats));
-      }
+  var selectedSeats = [];
+  if(!sessionStorage.getItem("selectedSeats")){
+    sessionStorage.setItem("selectedSeats",JSON.stringify(selectedSeats));
+  }
 
  $('td img').click(function(e){
       e.preventDefault();
@@ -403,7 +405,6 @@ if(!sessionStorage.getItem("selectedSeats")){
         $(this).click(function(event) {
           event.preventDefault();
         });
-
       }
       else if(curr == selectedSeat){
         $(this).attr('src',"./img/seat.png");
@@ -431,9 +432,6 @@ if(!sessionStorage.getItem("selectedSeats")){
         for(i = 0; i < selectedSeatsFor.length; i++){
             if(selected == selectedSeatsFor[i]){
               exist = true;
-              //console.log(selected);
-              //console.log(selectedSeatsFor[i]);
-              //console.log(exist);
             }
         }
 
@@ -447,3 +445,37 @@ if(!sessionStorage.getItem("selectedSeats")){
  });
 
 });  
+
+
+/*------------------
+  Seats update
+--------------------*/
+
+$(document).ready(function(){
+  $('td img').click(function() {
+    var seatsList = JSON.parse(sessionStorage.getItem("selectedSeats"));
+    var i;
+    var htmlSeats = '';
+    var htmlCost = '';
+    var count = 0;
+    var price = 150;
+    var cost;
+
+    for(i = 0; i < seatsList.length;i++){
+      if(seatsList[i] != null){
+        htmlSeats += seatsList[i] + ' ';
+        count++;
+      }
+    }
+    //cost of reservation
+    cost = count*price;
+    htmlCost = 'Total Cost: ₱' + cost;
+
+    sessionStorage.setItem("cost",cost);
+
+
+    $("#movieSeats").html(htmlSeats);
+    $("#seatsCost").html(htmlCost);
+    });
+  
+});
