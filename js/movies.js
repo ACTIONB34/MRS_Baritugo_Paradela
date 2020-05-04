@@ -238,42 +238,43 @@ $(document).ready(function(){
 	}
 	$("#movieSelect").html(html);
 
-    	var movieId = sessionStorage.getItem("movieId");
-		var test = '#movieSelect ';
-		var test2 = 'option[value='+movieId+']';
-		var test3 = test + test2;
+	//for dropdown
+	var movieId = sessionStorage.getItem("movieId");
+	var test = '#movieSelect ';
+	var test2 = 'option[value='+movieId+']';
+	var test3 = test + test2;
 
-		if(movieId){
-			$(test3).attr('selected', 'selected');
-			var movieSelectId = movieId;
-			movieSelectId -= 1;
-			var i;
+	if(movieId){
+		$(test3).attr('selected', 'selected');
+		var movieSelectId = movieId;
+		movieSelectId -= 1;
+		var i;
 
-		    var htmlDate = '<option selected>Choose a date...</option>';
+	    var htmlDate = '<option selected>Choose a date...</option>';
 
-			//for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
-				htmlDate += '<option value="' + movieslist[movieSelectId].date + '">' +
-			   					movieslist[movieSelectId].date + 
-			    				'</option>';
-			//}
-		    
-		    var htmlShowing = '<option selected>Choose a showing...</option>';
-			htmlShowing += '<option value="' + movieslist[movieSelectId].timeslot + '">' +
-						    movieslist[movieSelectId].timeslot + 
-						    '</option>';
+		//for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
+			htmlDate += '<option value="' + movieslist[movieSelectId].date + '">' +
+		   					movieslist[movieSelectId].date + 
+		    				'</option>';
+		//}
+	    
+	    var htmlShowing = '<option selected>Choose a showing...</option>';
+		htmlShowing += '<option value="' + movieslist[movieSelectId].timeslot + '">' +
+					    movieslist[movieSelectId].timeslot + 
+					    '</option>';
 
-		    var htmlCinema = '<option selected>Choose a cinema...</option>';
+	    var htmlCinema = '<option selected>Choose a cinema...</option>';
 
-			for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
-				htmlCinema += '<option value="' + movieslist[movieSelectId].cinema[i] + '"> Cinema ' +
-			   					movieslist[movieSelectId].cinema[i] + 
-			    				'</option>';
-			}
-			
-			$("#dateSelect").html(htmlDate);
-			$("#showingSelect").html(htmlShowing);
-			$("#cinemaSelect").html(htmlCinema);
+		for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
+			htmlCinema += '<option value="' + movieslist[movieSelectId].cinema[i] + '"> Cinema ' +
+		   					movieslist[movieSelectId].cinema[i] + 
+		    				'</option>';
 		}
+		
+		$("#dateSelect").html(htmlDate);
+		$("#showingSelect").html(htmlShowing);
+		$("#cinemaSelect").html(htmlCinema);
+	}
 
 	});
 
