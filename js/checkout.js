@@ -7,6 +7,35 @@
 
 
 /*------------------
+  Reserved Seats
+--------------------*/
+var reservedSeats = [
+  {
+    id: 1,
+    movie_id: 1,
+    cinema_id: 3,
+    date: "2020-04-28",
+    seat: "A6"
+  },
+  {
+    id: 2,
+    movie_id: 1,
+    cinema_id: 3,
+    date: "2020-04-28",
+    seat: "A7"
+  },
+  {
+    id: 3,
+    movie_id: 1,
+    cinema_id: 3,
+    date: "2020-04-28",
+    seat: "A8"
+  }
+
+];
+
+
+/*------------------
   Checkout Details
 --------------------*/
 $(document).ready(function(){
@@ -69,20 +98,22 @@ $(document).ready(function(){
   Add Reservation
 --------------------*/
 
-  // var reservations = [];
-  // if(!localStorage.getItem("reservations")){
-  // localStorage.setItem("reservations",JSON.stringify(reservations));
-  
-  // }
-
 $(document).ready(function(){
     var reservations = JSON.parse(localStorage.getItem("reservations"));
+
+    if(!localStorage.getItem("reservedSeats")){
+      localStorage.setItem("reservedSeats",JSON.stringify(reservedSeats));
+    }
     $.fn.addReservation = function(){ 
       var seatsFinalCheckout = [];  
       var i;
       var j;
+      var reservation;
+      var seatsReservation;
+      var seatsReservationStorage;
       var movies = JSON.parse(localStorage.getItem("movies"));
       var seatsCheckoutList = JSON.parse(sessionStorage.getItem("selectedSeats"));
+      var reservedSeats = JSON.parse(localStorage.getItem("reservedSeats"));
 
       var movieId = sessionStorage.getItem("movieId");
 
@@ -112,14 +143,26 @@ $(document).ready(function(){
         price: movieCost
       };
 
+      //reservedseats
+      for(i = 0; i < seatsFinalCheckout.length; i++){
+        seatsReservation = {
+          id: ++(reservedSeats.length),
+          movieId: movieId,
+          cinemaId: movieCinema,
+          date: movieDate,
+          seat: seatsFinalCheckout[i]
+        };
+        seatsReservationStorage = JSON.parse(localStorage.getItem("reservedSeats"));
+        seatsReservationStorage.push(seatsReservation);
+        localStorage.setItem("reservedSeats",JSON.stringify(seatsReservationStorage));
+
+      }
+
       var reservationsStorage = JSON.parse(localStorage.getItem("reservations"));
       reservationsStorage.push(reservation);
       localStorage.setItem("reservations",JSON.stringify(reservationsStorage));
       sessionStorage.clear();
       //location.reload();
-
-      
-      //also add reservedSeats
 
       var success = '<div class="col-lg-12">' +
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
