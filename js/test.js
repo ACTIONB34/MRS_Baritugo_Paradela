@@ -114,31 +114,27 @@ var reservations = [
 var reservedSeats = [
   {
     id: 1,
-    movieId: 1,
-    cinemaId: 3,
+    movie_id: 1,
+    cinema_id: 3,
     date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A6"
+    seat: "A1"
   },
   {
     id: 2,
-    movieId: 1,
-    cinemaId: 3,
+    movie_id: 1,
+    cinema_id: 3,
     date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A7"
+    seat: "A2"
   },
   {
     id: 3,
-    movieId: 1,
-    cinemaId: 3,
+    movie_id: 1,
+    cinema_id: 3,
     date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A8"
+    seat: "A3"
   }
 
 ];
-
 
 
 
@@ -221,11 +217,6 @@ $(document).ready(function(){
     var j;
     var text = ["A","B","C","D","E","F","G","H"];
 
-    var movieId = sessionStorage.getItem("movieId");
-    var selectedDate = sessionStorage.getItem("date");
-    var selectedShowing = sessionStorage.getItem("showing");
-    var selectedCinema = sessionStorage.getItem("cinemaId");
-
     for(i = 0; i < text.length; i++){
       seats += '<tr> + <th scope="row">' + text[i] + '</th>';
       for(j = 0; j < 8; j++){
@@ -253,22 +244,11 @@ $(document).ready(function(){
 
 
     //reserved seats Test 
-    var reservedSeatsStorage = JSON.parse(localStorage.getItem("reservedSeats"));
-    console.log(reservedSeatsStorage);
-    var reservedSeats = [];
-
-    for(i = 0, j = 0; i < reservedSeatsStorage.length; i++){
-      if((reservedSeatsStorage[i].movieId == movieId)&&(reservedSeatsStorage[i].cinemaId == selectedCinema)&&(reservedSeatsStorage[i].date == selectedDate)){
-        reservedSeats[j++] = reservedSeatsStorage[i].seat;
-      }
-    }
-
-    console.log(reservedSeats);
-
+    var reserved = ["A5","A6","A7"];
     var seat;
 
-    for(i = 0; i < reservedSeats.length; i++){
-      seat = '#Checkbox' + reservedSeats[i] +'';
+    for(i = 0; i < reserved.length; i++){
+      seat = '#Checkbox' + reserved[i] +'';
       $(seat).attr('src',"./img/reservedseat.png");
       //prevent click
       $(seat).click(function(event) {
