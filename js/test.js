@@ -255,58 +255,6 @@ $(document).ready(function(){
 });
 
 
-/*------------------
-  Checkout Details
---------------------*/
-$(document).ready(function(){
-
-  var movieName = "Mulan";
-  var movieDate = "2020-05-02";
-  var movieCinema = "Cinema 3";
-  var movieShowing = "3:00 PM"
-  var movieCinemaShowing = movieCinema + " - " + movieShowing;
-  var movieSeats = "A1 A2 A3"; //looped
-  var movieCost = "Total Cost: ₱450";
-
-  var movieCheckout = '<strong>' + movieName + '</strong>' +
-                      '<br><br>' +
-                      'Duration: 2h 5m' + //to be edited
-                      '<br><br>' +
-                      'Synopsis: To save her ailing father from serving in the Imperial Army, a fearless young woman disguises herself as a man to battle northern invaders in China.';
-
-  var movieCinemaDetails = '<strong>' + movieCinema + '</strong>' +
-                           '<br>' +
-                           '<strong>' + movieShowing + '</strong>' +
-                           '<br>' +
-                           '<strong>' + movieDate + '</strong>' +
-                           '<br>';
-
-  var movieSeatsDetails = movieSeats;
-/*                  <strong>A1</strong> - Regular<br>
-                  <strong>A2</strong> - Regular<br>
-                  <strong>A3</strong> - Regular<br>*/
-
-  var movieCostDetails = movieCost;
-
-/*  
-                  A1 - Regular.......<strong>₱150</strong><br>
-                  A2 - Regular.......<strong>₱150</strong><br>
-                  A3 - Regular......<strong>₱150</strong><br><br>
-                  <strong>Total: ₱450</strong>*/
-
-  //details
-  $("#movieCheckout").html(movieCheckout);
-  $("#movieCinemaDetails").html(movieCinemaDetails);
-  $("#movieSeatsDetails").html(movieSeatsDetails);
-  $("#movieCostDetails").html(movieCostDetails);
-
-  //summary  
-  $("#movieName").html(movieName);
-  $("#movieDate").html(movieDate);
-  $("#movieCinemaShowing").html(movieCinemaShowing);
-  $("#movieSeats").html(movieSeats);
-  $("#movieCost").html(movieCost);
-});
 
 
 
