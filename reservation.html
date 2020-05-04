@@ -115,7 +115,9 @@
 
 
 							<div class="col-md-12" style="padding-bottom: 15px;">
-							    <input class="form-control" type="date" value="2020-04-28" id="example-date-input">
+								  <select class="custom-select" id="dateSelect">
+								    <option selected>Choose a date...</option>
+								  </select>
 							</div>
 
 							<div class="col-md-12">
@@ -137,7 +139,7 @@
 
 							<div class="col-md-12">
 								<br>
-								<a class="reserve-seats-btn" href="./seats.html">Select seats</a>
+								<a id="selectSeats" class="reserve-seats-btn" href="./seats.html">Select seats</a>
 							</div>
 						</div>
 					</form>
@@ -161,7 +163,6 @@
 							    </tr>
 							  </thead>
 							  <tbody id = "reservations">
-
 							  </tbody>
 						  
 						</table>

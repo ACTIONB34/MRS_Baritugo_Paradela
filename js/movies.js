@@ -189,9 +189,27 @@ $(document).ready(function(){
 	Pass value movieId
 --------------------*/
 $(document).ready(function(){
-	$('a').click(function() {
+	$('#col-lg-4 col-md-6 feature-item a').click(function() {
  		var id = $(this).attr("id");
 		sessionStorage.setItem("movieId",id);
+	});
+	
+});
+
+
+/*------------------
+	Pass selected movie for seat selection
+--------------------*/
+$(document).ready(function(){
+	$("#selectSeats").click(function() {
+ 		var selectedMovie = $("#movieSelect").val();
+ 		var selectedDate = $("#dateSelect").val();
+ 		var selectedShowing = $("#showingSelect").val();
+ 		var selectedCinema = $("#cinemaSelect").val();
+		sessionStorage.setItem("movieId",selectedMovie);
+		sessionStorage.setItem("date",selectedDate);
+		sessionStorage.setItem("showing",selectedShowing);
+		sessionStorage.setItem("cinemaId",selectedCinema);
 	});
 	
 });
@@ -255,6 +273,14 @@ $(document).ready(function(){
 		var movieSelectId = $("#movieSelect").val();
 		movieSelectId -= 1;
 		var i;
+
+	    var htmlDate = '<option selected>Choose a date...</option>';
+
+		//for(i = 0; i < movieslist[movieSelectId].cinema.length; i++){
+			htmlDate += '<option value="' + movieslist[movieSelectId].date + '">' +
+		   					movieslist[movieSelectId].date + 
+		    				'</option>';
+		//}
 	    
 	    var htmlShowing = '<option selected>Choose a showing...</option>';
 		htmlShowing += '<option value="' + movieslist[movieSelectId].timeslot + '">' +
@@ -268,7 +294,8 @@ $(document).ready(function(){
 		   					movieslist[movieSelectId].cinema[i] + 
 		    				'</option>';
 		}
-
+		
+		$("#dateSelect").html(htmlDate);
 		$("#showingSelect").html(htmlShowing);
 		$("#cinemaSelect").html(htmlCinema);
 	  });
