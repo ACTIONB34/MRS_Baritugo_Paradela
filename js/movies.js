@@ -100,13 +100,6 @@ var prices = [
 
 
 
-
-/*------------------
-	Seats
---------------------*/
-var seats = ["A1","A2","A3","A4","A5","A6","A7","A8"];
-
-
 /*------------------
 	Show Movies
 --------------------*/
@@ -173,7 +166,7 @@ $(document).ready(function(){
 	Pass value movieId
 --------------------*/
 $(document).ready(function(){
-	$('#col-lg-4 col-md-6 feature-item a').click(function() {
+	$('a').click(function() {
  		var id = $(this).attr("id");
 		sessionStorage.setItem("movieId",id);
 	});

@@ -202,6 +202,16 @@ var reservedSeats = [
 
 
 
+/*------------------
+  Pass value movieId
+--------------------*/
+$(document).ready(function(){
+  $('a').click(function() {
+    var id = $(this).attr("id");
+    sessionStorage.setItem("movieId",id);
+  });
+  
+});
 
 
 /*------------------
@@ -254,7 +264,7 @@ $(document).ready(function(){
 
     //reserved seats Test 
     var reservedSeatsStorage = JSON.parse(localStorage.getItem("reservedSeats"));
-    console.log(reservedSeatsStorage);
+   // console.log(reservedSeatsStorage);
     var reservedSeats = [];
 
     for(i = 0, j = 0; i < reservedSeatsStorage.length; i++){
@@ -263,7 +273,7 @@ $(document).ready(function(){
       }
     }
 
-    console.log(reservedSeats);
+    //console.log(reservedSeats);
 
     var seat;
 
