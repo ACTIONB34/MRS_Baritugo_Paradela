@@ -289,6 +289,7 @@
 
 
 
+
 	<!-- Footer top section -->
 	<section class="footer-top-section text-white spad">
 		<div class="container">
@@ -312,6 +313,17 @@
 	</section>
 	<!-- Footer top section end -->
 
+
+	<!-- Test Script starts here -->
+	<script type="text/javascript">
+	   $(document).on("click", ".reservation-action", function () {
+		 var x = new Date(); 
+	     var myHeading = "<p>I Am Added Dynamically </p>";
+	     $("#modal-body").html(myHeading + x);   
+	     $('#modal').modal('show');
+	    });
+	</script>
+	<!-- Test Script ends here -->
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
