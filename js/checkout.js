@@ -12,23 +12,26 @@
 var reservedSeats = [
   {
     id: 1,
-    movie_id: 1,
-    cinema_id: 3,
+    movieId: 1,
+    cinemaId: 3,
     date: "2020-04-28",
+    showing: "8:00PM",
     seat: "A6"
   },
   {
     id: 2,
-    movie_id: 1,
-    cinema_id: 3,
+    movieId: 1,
+    cinemaId: 3,
     date: "2020-04-28",
+    showing: "8:00PM",
     seat: "A7"
   },
   {
     id: 3,
-    movie_id: 1,
-    cinema_id: 3,
+    movieId: 1,
+    cinemaId: 3,
     date: "2020-04-28",
+    showing: "8:00PM",
     seat: "A8"
   }
 
@@ -150,6 +153,7 @@ $(document).ready(function(){
           movieId: movieId,
           cinemaId: movieCinema,
           date: movieDate,
+          showing: movieShowing,
           seat: seatsFinalCheckout[i]
         };
         seatsReservationStorage = JSON.parse(localStorage.getItem("reservedSeats"));
