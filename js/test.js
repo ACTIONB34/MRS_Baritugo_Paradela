@@ -315,6 +315,12 @@ $(document).ready(function(){
 --------------------*/
 $(document).ready(function(){
 
+
+  var selectedSeats = [];
+  if(!sessionStorage.getItem("selectedSeats")){
+    sessionStorage.setItem("selectedSeats",JSON.stringify(selectedSeats));
+  }
+
     var movies = JSON.parse(localStorage.getItem("movies"));
     var seats = " ";
     var i;
@@ -337,8 +343,17 @@ $(document).ready(function(){
 
 
 
-    //reserved seats Test 
+    //already selected seats for session
+    var selectedSeatsStorage = JSON.parse(sessionStorage.getItem("selectedSeats"));
+    for(i = 0; i < selectedSeatsStorage.length; i++){
+      if(selectedSeatsStorage[i] != null){
+        seat = '#Checkbox' + selectedSeatsStorage[i] +'';
+        $(seat).attr('src',"./img/selectedseat2.png"); 
+      }
+     }
 
+
+    //reserved seats Test 
     var reserved = ["A5","A6","A7"];
     var seat;
 
