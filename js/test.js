@@ -266,7 +266,7 @@ var reservedSeats = [
   Reservation delete
 --------------------*/
 
-$(document).ready(function(){
+/*$(document).ready(function(){
   $('button').click(function() {
       var id = $(this).val();
       var i;
@@ -277,21 +277,32 @@ $(document).ready(function(){
         var reservationsStore = JSON.parse(localStorage.getItem("reservations"));
         delete reservationsStore[id-1];
         var finalReservations = [];
+        var finalReservation;
 
         for(i = 0; i < reservationsStore.length; i++){
-          if(reservationsStore[i]!=null){
-            finalReservations[j] = reservationsStore[i];
+          if(reservationsStore[i] != null){
+            finalReservation = {
+              id: ++(finalReservations.length),
+              movieId: reservationsStore[i].movieId,
+              cinemaId: reservationsStore[i].cinemaId,
+              seats: reservationsStore[i].seats,
+              date: reservationsStore[i].date,
+              showing: reservationsStore[i].showing,
+              price: reservationsStore[i].price  
+            };
+            finalReservations.push(finalReservation);
           }
         }
-
+        
+        console.log(reservationsStore);
         console.log(finalReservations);
-        //localStorage.setItem("reservations",JSON.stringify(reservationsStore));
-        //location.reload();
+        localStorage.setItem("reservations",JSON.stringify(finalReservations));
+        location.reload();
 
       }
     });
   
-});
+});*/
 
 
 
@@ -306,6 +317,12 @@ $(document).ready(function(){
   var selectedSeats = [];
   if(!sessionStorage.getItem("selectedSeats")){
     sessionStorage.setItem("selectedSeats",JSON.stringify(selectedSeats));
+  }
+
+  var reservedSeats = [];
+  if(!localStorage.getItem("reservedSeats")){
+  localStorage.setItem("reservedSeats",JSON.stringify(reservedSeats));
+  
   }
 
     var movies = JSON.parse(localStorage.getItem("movies"));
