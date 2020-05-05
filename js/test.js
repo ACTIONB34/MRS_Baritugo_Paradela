@@ -179,16 +179,62 @@ var reservedSeats = [
 
 
       if(mDate <= lDate && mDate >= fDate){
-       html += '<tr><th scope="row">' + reservations[i].id + '</th>'+
+        html += '<tr><th scope="row">' + (i+1) + '</th>'+
           '<td>' + movieName +'</td>'+
           '<td>' + reservations[i].date +'</td>'+
           '<td>' + reservations[i].showing +'</td>'+
           '<td> Cinema ' + reservations[i].cinemaId +'</td>'+
           '<td>' +
-          '<a href class="reservation-action" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-eye"></i></a>' +
-          '<a href class="reservation-delete" data-toggle="modal" data-target="#exampleModalLongDel"><i class="fa fa-trash"></i></a>'+
+          '<a href value="' + reservations[i].id + '" ' + 
+          'class="reservation-action" data-toggle="modal" ' + 
+          'data-target="#exampleModalLong' + reservations[i].id + '"><i class="fa fa-eye"></i></a>' +
+          '<a href value="' + reservations[i].id + '" ' + 
+          'class="reservation-delete" data-toggle="modal" ' +
+          'data-target="#exampleModalLongDel' + reservations[i].id + '"><i class="fa fa-trash"></i></a>'+
+          '<div class="modal fade" ' + 
+          'id="exampleModalLong' + reservations[i].id + 
+          '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">' +
+          '<div class="modal-dialog" role="document">' +
+          '<div class="modal-content">' +
+          '<div class="modal-header">' +
+          '<h5 class="modal-title" id="exampleModalLongTitle">Reservation Detail</h5>' +
+          '<button type="button" class="close" data-dismiss="modal" aria-label="Close">' +
+          '<span aria-hidden="true">&times;</span>' +
+          '</button>' +
+          '</div>' +
+          '<div class="modal-body">' +
+          '<div class="container-fluid">' +
+          '<div class="row">' +
+          '<div class="col-md-12" id="modalsample">' +
+          '<h5>Movie</h5>' +
+          '<hr>' +
+          '<h6>' + movieName + '</h6>' +
+          '<h5>Cinema Details</h5>' +
+          '<hr>' +
+          '<h6>' + reservations[i].date +'</h6>' +
+          '<h6>Cinema' + reservations[i].cinemaId + ' - ' + reservations[i].showing + '</h6>' +
+          '<h5>Seats</h5>' +
+          '<hr>' +
+          '<h6>['+ reservations[i].seats +']</h6>' +
+          '<h6>Total Cost: ₱' + reservations[i].price +'</h6>' +
+          '<br><br>' +
+          '</div>' +
+          '</div>' +
+          '<div class="row">' +
+          '</div>' +
+          '<div class="row">' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '<div class="modal-footer">' +
+          '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
           '</td>' + 
           '</tr>';
+
       }
 
     }
