@@ -245,7 +245,8 @@ var reservedSeats = [
           '</div>' +
           '<div class="modal-footer">' +
           '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
-          '<button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>' +
+          '<button id="btn-delete" value="'+ reservations[i].id +
+          '" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>' +
           '</div>' +
           '</div>' +
           '</div>' +
@@ -260,22 +261,40 @@ var reservedSeats = [
     });
   });
 
-//} else {
-//    alert("Sorry, your browser do not support local storage.");
-//}
-
-
 
 /*------------------
-  Pass value movieId
+  Reservation delete
 --------------------*/
+
 $(document).ready(function(){
-  $('a').click(function() {
-    var id = $(this).attr("id");
-    sessionStorage.setItem("movieId",id);
-  });
+  $('button').click(function() {
+      var id = $(this).val();
+      var i;
+      var j;
+
+      if(id != ""){
+        //console.log(id);
+        var reservationsStore = JSON.parse(localStorage.getItem("reservations"));
+        delete reservationsStore[id-1];
+        var finalReservations = [];
+
+        for(i = 0; i < reservationsStore.length; i++){
+          if(reservationsStore[i]!=null){
+            finalReservations[j] = reservationsStore[i];
+          }
+        }
+
+        console.log(finalReservations);
+        //localStorage.setItem("reservations",JSON.stringify(reservationsStore));
+        //location.reload();
+
+      }
+    });
   
 });
+
+
+
 
 
 /*------------------
