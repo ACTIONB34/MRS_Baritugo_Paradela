@@ -79,26 +79,6 @@ var movies = [
 ];
 
 
-/*------------------
-	Prices
---------------------*/
-var prices = [
-	{
-		name: "kids",
-		price: 100
-	},
-	{
-		name: "regular",
-		price: 150
-	},
-	{
-		name: "senior",
-		price: 120
-	}
-
-];
-
-
 
 /*------------------
 	Show Movies
@@ -190,24 +170,6 @@ $(document).ready(function(){
 	});
 	
 });
-
-
-//to be used soon
-// function dateCheck() {
-
-//     var fDate,lDate,cDate;
-//     fDate = $.datepicker.parseDate('dd-mm-yy', $('#fDate').val());   
-//     lDate = $.datepicker.parseDate('dd-mm-yy', $('#lDate').val());
-//     cDate =  $.datepicker.parseDate("DD, MM d, yy", $('#cDate').val());
-
-//     if((cDate <= lDate && cDate >= fDate)) {
-//         alert("true");
-//         return true;
-//     }
-//     alert("false");
-//     return false;
-// }
-
 
 /*------------------
 	Reservation Movielist Dropdown

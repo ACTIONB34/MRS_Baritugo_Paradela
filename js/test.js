@@ -88,57 +88,15 @@ var movies = [
 --------------------*/
 var reservations = [
   {
-    id: 1,
-    movieId: 2,
-    cinemaId: 3,
-    seats:["A1","A2","A3"],
-    date: '2020-04-28',
-    showing: "3:00 PM",
-    price: 450   
-  },
-  {
-    id: 2,
-    movieId: 1,
-    cinemaId: 2,
-    seats:["A1","A2","A3"],
-    date: '2020-04-28',
-    showing: "3:00 PM",
-    price: 450
+    id: null,
+    movieId: null,
+    cinemaId: null,
+    seats: null,
+    date: null,
+    showing: null,
+    price: null 
   }
 ];
-
-
-/*------------------
-  Reserved Seats
---------------------*/
-var reservedSeats = [
-  {
-    id: 1,
-    movieId: 1,
-    cinemaId: 3,
-    date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A6"
-  },
-  {
-    id: 2,
-    movieId: 1,
-    cinemaId: 3,
-    date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A7"
-  },
-  {
-    id: 3,
-    movieId: 1,
-    cinemaId: 3,
-    date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A8"
-  }
-
-];
-
 
 
 
@@ -148,10 +106,9 @@ var reservedSeats = [
 --------------------*/
 
 //if(localStorage) {
-  var reservations = [];
+  //var reservations = [];
   if(!localStorage.getItem("reservations")){
-  localStorage.setItem("reservations",JSON.stringify(reservations));
-  
+    localStorage.setItem("reservations",JSON.stringify(reservations));
   }
   $(document).ready(function(){
 

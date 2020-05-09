@@ -6,37 +6,6 @@
  ====================================*/
 
 
-/*------------------
-  Reserved Seats
---------------------*/
-var reservedSeats = [
-  {
-    id: 1,
-    movieId: 1,
-    cinemaId: 3,
-    date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A6"
-  },
-  {
-    id: 2,
-    movieId: 1,
-    cinemaId: 3,
-    date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A7"
-  },
-  {
-    id: 3,
-    movieId: 1,
-    cinemaId: 3,
-    date: "2020-04-28",
-    showing: "8:00PM",
-    seat: "A8"
-  }
-
-];
-
 
 /*------------------
   Checkout Details
@@ -107,6 +76,7 @@ $(document).ready(function(){
     if(!localStorage.getItem("reservedSeats")){
       localStorage.setItem("reservedSeats",JSON.stringify(reservedSeats));
     }
+
     $.fn.addReservation = function(){ 
       var seatsFinalCheckout = [];  
       var i;
@@ -114,6 +84,7 @@ $(document).ready(function(){
       var reservation;
       var seatsReservation;
       var seatsReservationStorage;
+      var maxId;
       var movies = JSON.parse(localStorage.getItem("movies"));
       var seatsCheckoutList = JSON.parse(sessionStorage.getItem("selectedSeats"));
       var reservedSeats = JSON.parse(localStorage.getItem("reservedSeats"));
@@ -135,9 +106,14 @@ $(document).ready(function(){
         }
       }
 
+      if(reservations[0].id == null){
+        maxId = 1;
+      } else {
+        maxId = (reservations[reservations.length-1].id)+1;
+      }
 
       var reservation = {
-        id: ++(reservations.length),
+        id: maxId,
         movieId: movieId,
         cinemaId: movieCinema,
         seats: seatsFinalCheckout,
@@ -164,10 +140,12 @@ $(document).ready(function(){
       }
 
       var reservationsStorage = JSON.parse(localStorage.getItem("reservations"));
+      if(reservations[0].id == null){
+        reservationsStorage = [];
+      } 
       reservationsStorage.push(reservation);
       localStorage.setItem("reservations",JSON.stringify(reservationsStorage));
       sessionStorage.clear();
-      //location.reload();
 
       var success = '<div class="col-lg-12">' +
                     '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
