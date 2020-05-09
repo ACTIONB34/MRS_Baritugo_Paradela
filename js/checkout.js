@@ -150,6 +150,7 @@ $(document).ready(function(){
       for(i = 0; i < seatsFinalCheckout.length; i++){
         seatsReservation = {
           id: ++(reservedSeats.length),
+          reservationid: reservation.id,
           movieId: movieId,
           cinemaId: movieCinema,
           date: movieDate,
